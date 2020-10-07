@@ -14,16 +14,13 @@ definitions:
           - gradle
           - sonar
         script:
-          - ./gradlew build sonarqube
+          - bash ./gradlew build sonarqube
         artifacts:
           - build/libs/**       
 
 pipelines:
   default:
     - step: *build-test-sonarcloud
-    - step:
-        script:
-          - bash ./gradlew build
   pull-requests:
     '**':
       - step: *build-test-sonarcloud
