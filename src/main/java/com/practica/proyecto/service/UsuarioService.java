@@ -33,9 +33,7 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public void deleteSucursal (Long id) {
-        usuarioRepository.deleteById(id);
-    }
+    public void deleteSucursal (Long id) {usuarioRepository.deleteById(id);}
 
     public Usuario disableUser(String documento){return usuarioRepository.disableUser(documento);}
 
