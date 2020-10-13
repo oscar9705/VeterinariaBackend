@@ -20,6 +20,7 @@ definitions:
 
 pipelines:
   default:
+      - step: *build-test-sonarcloud
   pull-requests:
     '**':
       - step: *build-test-sonarcloud
