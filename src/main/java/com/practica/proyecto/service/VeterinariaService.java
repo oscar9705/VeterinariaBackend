@@ -30,9 +30,7 @@ public class VeterinariaService {
     public Optional<Veterinaria> findById(Long id){return veterinariaRepository.findById(id);}
 
     public List<Veterinaria> findAll(){
-        List<Veterinaria> vet = veterinariaRepository.findAll();
-        System.out.println(vet.size());
-        return vet;
+       return veterinariaRepository.findAll();
     }
 
     public Optional<VeterinariaDTO> findbyIdVetSuc(Long idVet,Long idSuc){

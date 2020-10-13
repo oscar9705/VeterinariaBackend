@@ -8,13 +8,18 @@ import com.practica.proyecto.repository.VeterinariaRepository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +55,16 @@ public class VeterinariaServiceTest {
     public void findByIdTest(){
         Mockito.when(veterinariaRepository.findById(ID)).thenReturn(OPTIONAL_VETERINARIA);
         veterinariaService.findById(ID);
+
+    }
+    @Test
+    public void findByAllTest(){
+        final Veterinaria veterinaria = new Veterinaria();
+        Mockito.when(veterinariaRepository.findAll()).thenReturn(Arrays.asList(veterinaria));
+        final List<Veterinaria> resp = veterinariaService.findAll();
+        assertNotNull(resp);
+        assertFalse(resp.isEmpty());
+        assertEquals(resp.size(), 1);
 
     }
 
