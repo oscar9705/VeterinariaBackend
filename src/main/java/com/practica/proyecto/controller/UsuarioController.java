@@ -27,11 +27,6 @@ public class UsuarioController {
     @ApiOperation(value = "Insert Users", response = Usuario.class)
     public int disableUser(@RequestParam(name = "documento") String documento){return usuarioService.disableUser(documento);}
 
-
-    @PatchMapping(path = "/AceptarColaborador")
-    @ApiOperation(value = "Aceptar Colaborador", response = Usuario.class)
-    public Usuario cambiarEstadoColaborador(@RequestParam(name = "documento") String documento){return usuarioService.cambiarEstadoColaborador(documento);}
-
     @GetMapping(path = "/allActive")
     @ApiOperation(value = "Insert Users", response = Usuario.class)
     public List<Usuario> findAll(){return  usuarioService.findAllUsersActives();}
