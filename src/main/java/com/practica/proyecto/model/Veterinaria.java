@@ -32,12 +32,12 @@ public class Veterinaria {
     private Boolean estado;
 
     @Column(name = "fk_duenio_veterinaria")
-    private Long duenio;
+    private Integer duenio;
 
     @OneToMany(mappedBy = "veterinaria")
     List<Sucursal> sucursalList;
 
-    public Veterinaria(Long idVet, String nombre, String nit, String correo, Boolean estado, Long duenio) {
+    public Veterinaria(Long idVet, String nombre, String nit, String correo, Boolean estado, Integer duenio) {
         this.idVet = idVet;
         this.nombre = nombre;
         this.nit = nit;
@@ -89,11 +89,11 @@ public class Veterinaria {
         this.estado = estado;
     }
 
-    public Long getDuenio() {
+    public Integer getDuenio() {
         return duenio;
     }
 
-    public void setDuenio(Long duenio) {
+    public void setDuenio(Integer duenio) {
         this.duenio = duenio;
     }
     @JsonIgnore
