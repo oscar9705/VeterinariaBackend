@@ -2,6 +2,7 @@ package com.practica.proyecto.controller;
 
 
 import com.practica.proyecto.model.Veterinaria;
+import com.practica.proyecto.model.VeterinariaDTO;
 import com.practica.proyecto.service.VeterinariaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -49,9 +50,16 @@ public class VeterinariaController {
     public List<Veterinaria> findAll(){
         return veterinariaService.findAll();
     }
+
     @GetMapping(path = "/id")
     @ApiOperation(value = "Encontrar una veterinaria por id", response = Veterinaria.class)
     public Optional<Veterinaria> findById(@RequestParam(name="id") Long id){
         return  veterinariaService.findById(id);
+    }
+
+    @GetMapping(path = "/id/vet")
+    @ApiOperation(value = "Encontrar una veterinaria y la sucursal ", response = VeterinariaDTO.class)
+    public Optional<VeterinariaDTO> findByIdVetSuc(@RequestParam(name="idVet") Long idVet,@RequestParam(name="idSuc") Long idSuc){
+        return  veterinariaService.findbyIdVetSuc(idVet,idSuc);
     }
 }
