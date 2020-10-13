@@ -23,22 +23,18 @@ public class VeterinariaService {
         this.sucursalRepository = sucursalRepository;
     }
 
-    public Veterinaria saveVeterinaria(Veterinaria veterinaria){
-        return veterinariaRepository.save(veterinaria);
-    }
+    public Veterinaria saveVeterinaria(Veterinaria veterinaria){return veterinariaRepository.save(veterinaria);}
 
-    public Veterinaria updateVeterinaria(Veterinaria veterinaria){
-        return veterinariaRepository.save(veterinaria);
-    }
-    public Optional<Veterinaria> findById(Long id){
-        return veterinariaRepository.findById(id);
-    }
+    public Veterinaria updateVeterinaria(Veterinaria veterinaria){return veterinariaRepository.save(veterinaria);}
+
+    public Optional<Veterinaria> findById(Long id){return veterinariaRepository.findById(id);}
+
     public List<Veterinaria> findAll(){
         List<Veterinaria> vet = veterinariaRepository.findAll();
         System.out.println(vet.size());
-
         return vet;
     }
+
     public Optional<VeterinariaDTO> findbyIdVetSuc(Long idVet,Long idSuc){
         Optional<VeterinariaDTO> vetOpt = Optional.of(new VeterinariaDTO());
         VeterinariaDTO vetDto = new VeterinariaDTO();
@@ -54,10 +50,13 @@ public class VeterinariaService {
             vetOpt = Optional.of(vetDto);
         }
         return vetOpt;
-
     }
 
-    public void deleteVeterinaria (Long id) {
+    public void deleteVeterinaria(Long id) {
         veterinariaRepository.deleteById(id);
     }
+
+    public List<Veterinaria> findAllVeterinariansActives(){return veterinariaRepository.findAllVeterinariansActives();}
+
+    public Veterinaria disableVeterinary(String nit){return veterinariaRepository.disableVeterinary(nit);}
 }

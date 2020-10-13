@@ -1,14 +1,15 @@
 package com.practica.proyecto.controller;
 
 
+import com.practica.proyecto.model.Usuario;
 import com.practica.proyecto.model.Veterinaria;
-import com.practica.proyecto.model.VeterinariaDTO;
 import com.practica.proyecto.service.VeterinariaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,11 +30,13 @@ public class VeterinariaController {
     public VeterinariaController(VeterinariaService veterinariaService) {
         this.veterinariaService = veterinariaService;
     }
+
     @PostMapping(path = "/save")
     @ApiOperation(value = "agregue veterinaria", response = Veterinaria.class)
     public Veterinaria saveVeterinaria(@RequestBody Veterinaria veterinaria){
         return veterinariaService.saveVeterinaria(veterinaria);
     }
+
     @DeleteMapping(path = "/delete")
     @ApiOperation(value = "elimine una veterinaria", response = Veterinaria.class)
     public void deleteVeterinaria(@RequestParam(name="id") Long id){
@@ -45,6 +48,7 @@ public class VeterinariaController {
     public Veterinaria updateVeterinaria(@RequestBody Veterinaria veterinaria){
         return veterinariaService.updateVeterinaria(veterinaria);
     }
+
     @GetMapping(path = "/all")
     @ApiOperation(value = "Encontrar todas las veterinarias", response = Veterinaria.class)
     public List<Veterinaria> findAll(){
@@ -57,9 +61,11 @@ public class VeterinariaController {
         return  veterinariaService.findById(id);
     }
 
-    @GetMapping(path = "/id/vet")
-    @ApiOperation(value = "Encontrar una veterinaria y la sucursal ", response = VeterinariaDTO.class)
-    public Optional<VeterinariaDTO> findByIdVetSuc(@RequestParam(name="idVet") Long idVet,@RequestParam(name="idSuc") Long idSuc){
-        return  veterinariaService.findbyIdVetSuc(idVet,idSuc);
-    }
+    @GetMapping(path = "/allActive")
+    @ApiOperation(value = "Encontrar todas las veterinarias activas", response = Veterinaria.class)
+    public List<Veterinaria> findAllVeterinariansActives(){return  veterinariaService.findAllVeterinariansActives();}
+
+    @PatchMapping(path = "/disableVeterinary")
+    @ApiOperation(value = "Deshabilitar una veterinaria por nit", response = Veterinaria.class)
+    public Veterinaria disableVeterinary(@RequestParam(name = "nit") String nit){return veterinariaService.disableVeterinary(nit);}
 }
