@@ -36,6 +36,7 @@ public class UsuarioService {
     public void deleteSucursal (Long id) {usuarioRepository.deleteById(id);}
 
     public Usuario disableUser(String documento){return usuarioRepository.disableUser(documento);}
+    public Usuario cambiarEstadoColaborador(String documento){return usuarioRepository.cambiarEstadoColaborador(documento,"VET","AUX");}
 
     public List<Usuario> findAllUsersActives(){return usuarioRepository.findAllUsersActives();}
 }
