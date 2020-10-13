@@ -44,7 +44,7 @@ public class VeterinariaService {
         VeterinariaDTO vetDto = new VeterinariaDTO();
         Optional<Veterinaria> vet = veterinariaRepository.findById(idVet);
         Optional<Sucursal> suc = sucursalRepository.findById(idSuc);
-
+        if(vetOpt.isPresent()) {
             vetDto.setNit(vet.get().getNit());
             vetDto.setNombreVet(vet.get().getNombre());
             vetDto.setCorreo(vet.get().getCorreo());
@@ -52,7 +52,7 @@ public class VeterinariaService {
             vetDto.setTelefono(suc.get().getTelefono());
             vetDto.setImagen(suc.get().getImagen());
             vetOpt = Optional.of(vetDto);
-
+        }
         return vetOpt;
 
     }
