@@ -26,9 +26,11 @@ public class UsuarioService {
     public Usuario updateusuario(Usuario usuario){
         return usuarioRepository.save( usuario);
     }
+
     public Optional<Usuario> findById(Long id){
         return usuarioRepository.findById(id);
     }
+
     public List<Usuario> findAll(){
         return usuarioRepository.findAll();
     }
@@ -36,4 +38,8 @@ public class UsuarioService {
     public void deleteSucursal (Long id) {
         usuarioRepository.deleteById(id);
     }
+
+    public Usuario disableUser(String documento){return usuarioRepository.disableUser(documento);}
+
+    public List<Usuario> findAllUsersActives(){return usuarioRepository.findAllUsersActives();}
 }

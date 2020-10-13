@@ -38,4 +38,8 @@ public class VeterinariaService {
     public void deleteVeterinaria (Long id) {
         veterinariaRepository.deleteById(id);
     }
+
+    public List<Veterinaria> findAllVeterinariansActives(){return veterinariaRepository.findAllVeterinariansActives();}
+
+    public Veterinaria disableVeterinary(String nit){return veterinariaRepository.disableVeterinary(nit);}
 }

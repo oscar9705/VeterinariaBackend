@@ -1,10 +1,10 @@
 CREATE TABLE public.veterinarias
 (
-    correo_veterinaria character varying(100) NOT NULL,
-    estado_veterinaria boolean ,
     id_veterinaria serial NOT NULL,
     nit_veterinaria character varying(20) NOT NULL,
     nombre_veterinaria character varying(10) NOT NULL,
+    correo_veterinaria character varying(100) NOT NULL,
+    estado_veterinaria boolean NOT NULL,
     fk_duenio_veterinaria integer ,
     PRIMARY KEY (id_veterinaria)
 );
@@ -39,7 +39,7 @@ CREATE TABLE public.usuarios
     telefono_cliente character varying(70) NOT NULL,
     correo_cliente character varying(30) NOT NULL,
     contrasenia_cliente character varying(30) NOT NULL,
-    estado_cliente character varying(30) NOT NULL,
+    estado_cliente boolean NOT NULL,
     rol character varying(20) NOT NULL,
     PRIMARY KEY (id_cliente)
 );
