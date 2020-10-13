@@ -31,6 +31,14 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     int cambiarEstadoColaborador(@Param(value = "documento") String documento);
 
     @Query(nativeQuery = true,
+            value = "UPDATE usuarios " +
+                    "SET estado_cliente=true  " +
+                    "WHERE valor_documento_cliente=:documento " +
+                    "AND rol=:rolVet " +
+                    "OR rol=:rolAux ")
+    Usuario cambiarEstadoColaborador(@Param(value = "documento") String documento, @Param(value = "rolVet") String rolVet,@Param(value = "rolAux") String rolAux);
+
+    @Query(nativeQuery = true,
             value = "SELECT " +
                     "id_cliente, " +
                     "nombres_cliente, " +

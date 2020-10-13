@@ -95,8 +95,10 @@ public class VeterinariaServiceTest {
     void findbyIdVetSucTest () {
         Mockito.when(veterinariaRepository.findById(ID)).thenReturn(OPTIONAL_VETERINARIA);
         Mockito.when(sucursalRepository.findById(ID_SUC)).thenReturn(OPTIONAL_SUCURSAL);
-        Mockito.when(veterinariaService.findbyIdVetSuc(ID,ID_SUC)).thenReturn(OPTIONAL_VETERINARIA_DTO);
-        veterinariaService.findbyIdVetSuc(ID,ID_SUC);
+
+        final Optional<VeterinariaDTO> resp = veterinariaService.findbyIdVetSuc(ID,ID_SUC);
+        assertNotNull(resp);
+
     }
 
     @Test
