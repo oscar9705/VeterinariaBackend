@@ -1,8 +1,6 @@
 package com.practica.proyecto.service;
 
-import com.practica.proyecto.model.Sucursal;
 import com.practica.proyecto.model.Usuario;
-import com.practica.proyecto.repository.SucursalRepository;
 import com.practica.proyecto.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
