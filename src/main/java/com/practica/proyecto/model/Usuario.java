@@ -38,7 +38,7 @@ public class Usuario {
     @Column(name = "contrasenia_cliente")
     private String contrasenia;
     @Column(name = "estado_cliente")
-    private String estado;
+    private Boolean estado;
     @Column( name = "rol")
     private String rol;
 
@@ -158,13 +158,9 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public String getEstado() {
-        return estado;
-    }
+    public Boolean getEstado() {return estado;}
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+    public void setEstado(Boolean estado) {this.estado = estado;}
 
     public String getRol() {
         return rol;

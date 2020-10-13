@@ -25,9 +25,14 @@ public class UsuarioController {
 
     @PatchMapping(path = "/disableUser")
     @ApiOperation(value = "Insert Users", response = Usuario.class)
-    public Usuario disableUser(@RequestParam(name = "documento") String documento){return usuarioService.disableUser(documento);}
+    public int disableUser(@RequestParam(name = "documento") String documento){return usuarioService.disableUser(documento);}
 
     @GetMapping(path = "/allActive")
     @ApiOperation(value = "Insert Users", response = Usuario.class)
     public List<Usuario> findAll(){return  usuarioService.findAllUsersActives();}
+
+    @PatchMapping(path = "/aceptarColaborador")
+    @ApiOperation(value = "Aceptar Colaborador", response = Usuario.class)
+    public int cambiarEstadoColaborador(@RequestParam(name = "documento") String documento){return usuarioService.cambiarEstadoColaborador(documento);}
+
 }

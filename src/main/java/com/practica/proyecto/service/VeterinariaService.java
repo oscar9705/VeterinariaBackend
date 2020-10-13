@@ -50,11 +50,9 @@ public class VeterinariaService {
         return vetOpt;
     }
 
-    public void deleteVeterinaria(Long id) {
-        veterinariaRepository.deleteById(id);
-    }
+    public void deleteVeterinaria(Long id) {veterinariaRepository.deleteById(id);}
 
     public List<Veterinaria> findAllVeterinariansActives(){return veterinariaRepository.findAllVeterinariansActives();}
 
-    public Veterinaria disableVeterinary(String nit){return veterinariaRepository.disableVeterinary(nit);}
+    public int disableVeterinary(String nit){return veterinariaRepository.disableVeterinary(nit);}
 }

@@ -26,11 +26,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class VeterinariaServiceTest {
+
     private static final Long ID_SUC = Long.valueOf(1);
     private static final String DIRECCION = "CRA 80";
     private static final String TELEFONO = "4454341";
     private static final String IMAGEN = "foto.jpg";
-
 
     private static final Long ID = Long.valueOf(1);
     private static final int ID_DUENIO = 1;
@@ -73,37 +73,40 @@ public class VeterinariaServiceTest {
         SUCURSAL.setImagen(IMAGEN);
         SUCURSAL.setTelefono(TELEFONO);
         SUCURSAL.setVeterinaria(VETERINARIA);
-
-
-
-
-
-
     }
+
     @Test
-    void findByIdTest(){
+    void findByIdTest () {
         Mockito.when(veterinariaRepository.findById(ID)).thenReturn(OPTIONAL_VETERINARIA);
         veterinariaService.findById(ID);
-
     }
+
     @Test
-    void findByAllTest(){
+    void findByAllTest () {
         final Veterinaria veterinaria = new Veterinaria();
         Mockito.when(veterinariaRepository.findAll()).thenReturn(Arrays.asList(veterinaria));
         final List<Veterinaria> resp = veterinariaService.findAll();
         assertNotNull(resp);
         assertFalse(resp.isEmpty());
         assertEquals(resp.size(), 1);
-
     }
 
     @Test
-    void findbyIdVetSucTest(){
+    void findbyIdVetSucTest () {
         Mockito.when(veterinariaRepository.findById(ID)).thenReturn(OPTIONAL_VETERINARIA);
         Mockito.when(sucursalRepository.findById(ID_SUC)).thenReturn(OPTIONAL_SUCURSAL);
         Mockito.when(veterinariaService.findbyIdVetSuc(ID,ID_SUC)).thenReturn(OPTIONAL_VETERINARIA_DTO);
         veterinariaService.findbyIdVetSuc(ID,ID_SUC);
     }
 
+    @Test
+    void findAllVeterinariansActives () {
+        final Veterinaria veterinaria = new Veterinaria();
+        Mockito.when(veterinariaRepository.findAllVeterinariansActives()).thenReturn(Arrays.asList(veterinaria));
+        final List<Veterinaria> resp =veterinariaService.findAllVeterinariansActives();
+        assertNotNull(resp);
+        assertFalse(resp.isEmpty());
+        assertEquals(resp.size(),1);
+    }
 
 }

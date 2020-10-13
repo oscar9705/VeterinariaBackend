@@ -67,5 +67,5 @@ public class VeterinariaController {
 
     @PatchMapping(path = "/disableVeterinary")
     @ApiOperation(value = "Deshabilitar una veterinaria por nit", response = Veterinaria.class)
-    public Veterinaria disableVeterinary(@RequestParam(name = "nit") String nit){return veterinariaService.disableVeterinary(nit);}
+    public int disableVeterinary(@RequestParam(name = "nit") String nit){return veterinariaService.disableVeterinary(nit);}
 }

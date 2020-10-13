@@ -4,7 +4,6 @@ import com.practica.proyecto.model.Usuario;
 import com.practica.proyecto.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +34,9 @@ public class UsuarioService {
 
     public void deleteSucursal (Long id) {usuarioRepository.deleteById(id);}
 
-    public Usuario disableUser(String documento){return usuarioRepository.disableUser(documento);}
+    public int disableUser(String documento){return usuarioRepository.disableUser(documento);}
+
+    public int cambiarEstadoColaborador(String documento){return usuarioRepository.cambiarEstadoColaborador(documento);}
 
     public List<Usuario> findAllUsersActives(){return usuarioRepository.findAllUsersActives();}
 }
