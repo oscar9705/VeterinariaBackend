@@ -11,6 +11,7 @@ import java.util.Optional;
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+
     @Autowired
     public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
@@ -21,7 +22,7 @@ public class UsuarioService {
     }
 
     public Usuario updateusuario(Usuario usuario){
-        return usuarioRepository.save( usuario);
+        return usuarioRepository.save(usuario);
     }
 
     public Optional<Usuario> findById(Long id){
@@ -32,11 +33,19 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public void deleteSucursal (Long id) {usuarioRepository.deleteById(id);}
+    public void deleteSucursal (Long id) {
+        usuarioRepository.deleteById(id);
+    }
 
-    public int disableUser(String documento){return usuarioRepository.disableUser(documento);}
+    public int disableUser(String documento){
+        return usuarioRepository.disableUser(documento);
+    }
 
-    public int cambiarEstadoColaborador(String documento){return usuarioRepository.cambiarEstadoColaborador(documento);}
+    public int cambiarEstadoColaborador(String documento){
+        return usuarioRepository.cambiarEstadoColaborador(documento);
+    }
 
-    public List<Usuario> findAllUsersActives(){return usuarioRepository.findAllUsersActives();}
+    public List<Usuario> findAllUsersActives(){
+        return usuarioRepository.findAllUsersActives();
+    }
 }

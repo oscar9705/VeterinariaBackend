@@ -21,18 +21,26 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
 
     @Autowired
-    public UsuarioController(UsuarioService usuarioService){this.usuarioService = usuarioService;}
+    public UsuarioController(UsuarioService usuarioService){
+        this.usuarioService = usuarioService;
+    }
 
     @PatchMapping(path = "/disableUser")
     @ApiOperation(value = "Insert Users", response = Usuario.class)
-    public int disableUser(@RequestParam(name = "documento") String documento){return usuarioService.disableUser(documento);}
+    public int disableUser(@RequestParam(name = "documento") String documento){
+        return usuarioService.disableUser(documento);
+    }
 
     @GetMapping(path = "/allActive")
     @ApiOperation(value = "Insert Users", response = Usuario.class)
-    public List<Usuario> findAll(){return  usuarioService.findAllUsersActives();}
+    public List<Usuario> findAll(){
+        return  usuarioService.findAllUsersActives();
+    }
 
     @PatchMapping(path = "/aceptarColaborador")
     @ApiOperation(value = "Aceptar Colaborador", response = Usuario.class)
-    public int cambiarEstadoColaborador(@RequestParam(name = "documento") String documento){return usuarioService.cambiarEstadoColaborador(documento);}
+    public int cambiarEstadoColaborador(@RequestParam(name = "documento") String documento){
+        return usuarioService.cambiarEstadoColaborador(documento);
+    }
 
 }

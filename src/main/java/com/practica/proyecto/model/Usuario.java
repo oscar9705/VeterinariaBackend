@@ -17,40 +17,56 @@ import java.util.List;
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private Long id;
+
     @Column(name = "nombres_cliente")
     private String nombre;
+
     @Column(name = "apellidos_cliente")
     private String apellido;
+
     @Column(name = "tipo_documento_cliente")
     private String tipoDocumento;
+
     @Column(name = "valor_documento_cliente")
     private String valorDocumento;
+
     @Column(name = "fecha_nacimiento_cliente")
     private Date fechaNacimiento;
+
     @Column(name = "departamento_residencia_cliente")
     private String departamento;
+
     @Column(name = "ciudad_residencia_cliente")
     private String ciudad;
+
     @Column(name = "barrio_residencia_cliente")
     private String barrio;
+
     @Column(name = "telefono_cliente")
     private String telefono;
+
     @Column(name = "correo_cliente")
     private String correo;
+
     @Column(name = "contrasenia_cliente")
     private String contrasenia;
+
     @Column(name = "estado_cliente")
     private Boolean estado;
+
     @Column( name = "rol")
     private String rol;
+
     @OneToMany(mappedBy = "usuario")
-    List<Mascota> mascotaList;
+    private List<Mascota> mascotaList;
 
     public Usuario() {
+        // Constructor
     }
 
     public Usuario(Usuario usuario) {
