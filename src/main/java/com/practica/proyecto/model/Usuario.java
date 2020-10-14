@@ -1,12 +1,18 @@
 package com.practica.proyecto.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -41,6 +47,8 @@ public class Usuario {
     private Boolean estado;
     @Column( name = "rol")
     private String rol;
+    @OneToMany(mappedBy = "usuario")
+    List<Mascota> mascotaList;
 
     public Usuario() {
     }
