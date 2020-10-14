@@ -13,16 +13,14 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Transactional
-    @Modifying(clearAutomatically = true)
+
     @Query(nativeQuery = true,
             value = "UPDATE usuarios " +
                     "SET estado_cliente=false " +
                     "WHERE valor_documento_cliente=:documento")
     int disableUser(@Param(value = "documento") String documento);
 
-    @Transactional
-    @Modifying(clearAutomatically = true)
+
     @Query(nativeQuery = true,
             value = "UPDATE usuarios " +
                     "SET estado_cliente=true  " +
