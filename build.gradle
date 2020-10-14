@@ -16,8 +16,8 @@ repositories {
 }
 
 sonarqube {
-	properties{
-		property 'sonar.coverage.exclusions', "**/com/practica/proyecto/*"
+	properties {
+		property "sonar.sourceEncoding", "UTF-8"
 	}
 }
 
