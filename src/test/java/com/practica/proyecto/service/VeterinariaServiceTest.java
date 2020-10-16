@@ -1,13 +1,17 @@
 package com.practica.proyecto.service;
 
+import com.practica.proyecto.model.Mascota;
 import com.practica.proyecto.model.Sucursal;
 import com.practica.proyecto.model.Veterinaria;
 import com.practica.proyecto.model.VeterinariaDTO;
+import com.practica.proyecto.repository.MascotaRepository;
 import com.practica.proyecto.repository.SucursalRepository;
 import com.practica.proyecto.repository.VeterinariaRepository;
 
 
-
+import org.aspectj.lang.annotation.After;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -26,6 +30,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class VeterinariaServiceTest {
+
+  ;
+
 
     private static final Long ID_SUC = Long.valueOf(1);
     private static final String DIRECCION = "CRA 80";
@@ -46,13 +53,18 @@ public class VeterinariaServiceTest {
     private static final Optional<Sucursal> OPTIONAL_SUCURSAL = Optional.of(SUCURSAL);
     private static final Optional<VeterinariaDTO> OPTIONAL_VETERINARIA_DTO = Optional.of(VETERINARIA_DTO);
 
+
     @Mock
     private VeterinariaRepository veterinariaRepository;
+
+
+
 
     @Mock
     private SucursalRepository sucursalRepository;
     @InjectMocks
     VeterinariaService veterinariaService;
+
     @BeforeEach
      public void init(){
         MockitoAnnotations.initMocks(this);
@@ -73,6 +85,9 @@ public class VeterinariaServiceTest {
         SUCURSAL.setImagen(IMAGEN);
         SUCURSAL.setTelefono(TELEFONO);
         SUCURSAL.setVeterinaria(VETERINARIA);
+
+
+
     }
 
     @Test
@@ -80,6 +95,8 @@ public class VeterinariaServiceTest {
         Mockito.when(veterinariaRepository.findById(ID)).thenReturn(OPTIONAL_VETERINARIA);
         veterinariaService.findById(ID);
     }
+
+
 
     @Test
     void findByAllTest () {
@@ -110,5 +127,8 @@ public class VeterinariaServiceTest {
         assertFalse(resp.isEmpty());
         assertEquals(resp.size(),1);
     }
+
+
+
 
 }

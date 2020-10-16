@@ -1,5 +1,6 @@
 package com.practica.proyecto.service;
 
+import com.practica.proyecto.model.Mascota;
 import com.practica.proyecto.model.Sucursal;
 import com.practica.proyecto.model.Veterinaria;
 import com.practica.proyecto.model.VeterinariaDTO;
@@ -17,6 +18,8 @@ public class VeterinariaService {
     private final SucursalRepository sucursalRepository;
 
 
+
+
     @Autowired
     public VeterinariaService(VeterinariaRepository veterinariaRepository, SucursalRepository sucursalRepository) {
         this.veterinariaRepository = veterinariaRepository;
@@ -28,6 +31,9 @@ public class VeterinariaService {
     public Veterinaria updateVeterinaria(Veterinaria veterinaria){return veterinariaRepository.save(veterinaria);}
 
     public Optional<Veterinaria> findById(Long id){return veterinariaRepository.findById(id);}
+
+
+
 
     public List<Veterinaria> findAll(){
        return veterinariaRepository.findAll();
